@@ -19,4 +19,4 @@ Just to keep everything together, all five files are saved in the *"Processed Ac
 
 For evaluation, please look at the final file *"Processed Activity Data-5.txt"*, and you can ignore the other files.
 
-For the variable description, please look at the codebook *"Activity_Data_Codebook.pdf"*
+For the variable description, please look at the codebook *"Activity_Data_Codebook.pdf"*.
