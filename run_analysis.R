@@ -140,4 +140,5 @@ names(final_dat) <- features
 #step 5 file write
 write.table(final_dat,
             "Processed Activity Data/Processed Activity Data-5.txt",
-            row.names = FALSE)
+            row.names = FALSE,
+            quote = FALSE)
