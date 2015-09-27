@@ -107,28 +107,37 @@ tot_feat <- ncol(whole_data_extract)
 
 #preparing a new data frame for averages
 x <- c(1:30)
+#repeated number vector for each activity
 x <- rep(x,each=6)
-x <- as.data.frame(x)
+x <- as.data.frame(x)#data frame with subjects
+
+#repeated activity name dataframe
 exer <- exer$V2
 exer <- as.data.frame(exer)
 final_fr <- cbind(x,exer)
 final_fr$exer <- as.character(final_fr$exer)
 
+#new blank vector to save the averages
 blank_vec <- c()
 
 for (i in 1:nrow(final_fr)) {
+  #find the rows that fulfill the subject number and activity name
     row_ind <- 
         which((whole_data_extract$subject==final_fr$x[i])
           &(whole_data_extract$activity==final_fr$exer[i]))
     
-
+#create the vector with mean for the subject and the activity considerd for a particular row
     temp_var <- sapply(whole_data_extract[row_ind,3:tot_feat],mean)
     blank_vec <- rbind(blank_vec,temp_var)
 }
+
+
 blank_vec <- as.data.frame(blank_vec)
 final_dat <- cbind(final_fr,blank_vec)
+#updating the names again
 names(final_dat) <- features
 
+#step 5 file write
 write.table(final_dat,
             "Processed Activity Data/Processed Activity Data-5.txt",
             row.names = FALSE)
